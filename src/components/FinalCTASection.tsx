@@ -1,68 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Calendar, Users } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const FinalCTASection = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    ddi: "+55",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const updatePhonePlaceholder = (ddi: string) =>
-    ddi === "+1" ? "(000) 000-0000" : "(00) 00000-0000";
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!formData.name || !formData.email || !formData.phone) {
-      alert("Por favor, preencha todos os campos");
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      const formDataToSend = new FormData();
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("phone", formData.phone);
-      formDataToSend.append("ddi", formData.ddi);
-
-      const response = await fetch(
-        "https://link.salee.ai/widget/form/TisgaxvtT31gflLTbBFY",
-        {
-          method: "POST",
-          body: formDataToSend,
-        }
-      );
-
-      if (response.ok) {
-        console.log("Lead capturado!");
-        navigate("/obrigado");
-      } else {
-        console.error("Erro na resposta:", response.status);
-        alert("Erro ao enviar formulário. Tente novamente.");
-      }
-    } catch (error) {
-      console.error("Erro:", error);
-      alert("Erro ao enviar formulário. Tente novamente.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   // Carregar script externo do Salee apenas uma vez
   useEffect(() => {
@@ -75,6 +16,27 @@ const FinalCTASection = () => {
       document.body.appendChild(script);
     }
   }, []);
+
+  // Listener para capturar o submit do form dentro do iframe
+useEffect(() => {
+  const iframe = document.getElementById("popup-TisgaxvtT31gflLTbBFY");
+
+  const checkRedirect = () => {
+    try {
+      const url = iframe.contentWindow.location.href;
+
+      // 👉 Troque "pagina-de-sucesso" pelo pedaço da URL que aparece no Salee após o envio
+      if (url.includes("pagina-de-sucesso")) {
+        window.location.href = "/obrigado"; // redireciona fora do iframe
+      }
+    } catch (e) {
+      // Se o domínio for diferente, pode dar erro de cross-domain → ignora
+    }
+  };
+
+  const interval = setInterval(checkRedirect, 1500); // checa a cada 1.5s
+  return () => clearInterval(interval);
+}, []);
 
   return (
     <section
