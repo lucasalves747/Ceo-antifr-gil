@@ -43,7 +43,7 @@ const ProblemSection = () => {
                 Ciência aplicada à alta performance
               </h3>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Conteúdo baseado na obra do Dr. Santiago Vencina, descubra os protocolos para 
+                Conteúdo baseado na obra do Dr. Santiago Vecina, descubra os protocolos para 
                 Hackear seu corpo e alcançar a energia, foco e alta performance.
               </p>
               
