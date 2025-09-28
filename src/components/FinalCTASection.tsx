@@ -26,7 +26,7 @@ useEffect(() => {
       const url = iframe.contentWindow.location.href;
 
       // 👉 Troque "pagina-de-sucesso" pelo pedaço da URL que aparece no Salee após o envio
-      if (url.includes("pagina-de-sucesso")) {
+      if (url.includes("https://ceo-antifragil.vercel.app/obrigado")) {
         window.location.href = "/obrigado"; // redireciona fora do iframe
       }
     } catch (e) {
