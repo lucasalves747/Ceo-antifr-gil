@@ -28,7 +28,7 @@ const HostBioSection = () => {
           {/* Left: Dr. Santiago Photo */}
           <div className="animate-slide-up">
             <h2 className="text-section-title mb-6 text-center">
-              Conheça o Dr. Santiago
+              Conheça o Dr. Santiago Vecina
             </h2>
             <div className="relative max-w-md mx-auto">
               <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-transparent rounded-2xl blur-3xl"></div>
@@ -48,7 +48,7 @@ const HostBioSection = () => {
             <div>
               <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                 <p>
-                  Dr. Santiago é um médico que se tornou empreendedor serial e descobriu 
+                  Dr. Santiago Vecina é um médico que se tornou empreendedor serial e descobriu 
                   da forma mais difícil que a medicina tradicional não foi projetada para líderes empresariais de alta performance.
                 </p>
                 <p>

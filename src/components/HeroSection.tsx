@@ -21,7 +21,7 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-hero-sub text-muted-foreground max-w-3xl mx-auto px-4 md:px-0">
-            Participe da masterclass exclusiva do Dr. Santiago e descubra os segredos de biohacking 
+            Participe da masterclass exclusiva do Dr. Santiago Vecina e descubra os segredos de biohacking 
             que transformam empreendedores esgotados em <span className="text-primary font-semibold">CEOs antifrágeis</span>
           </p>
 
