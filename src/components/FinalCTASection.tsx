@@ -64,7 +64,7 @@ useEffect(() => {
               <div className="text-left">
                 <div className="font-semibold text-sm">Data</div>
                 <div className="text-sm text-muted-foreground">
-                  18/10/25 às 19H USA / 20H BRA
+                  29/10/25 às 19H USA / 20H BRA
                 </div>
               </div>
             </div>
